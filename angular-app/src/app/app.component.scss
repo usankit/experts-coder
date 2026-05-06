@@ -1,0 +1,27 @@
+.nav-links {
+  display: flex;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+@media (max-width: 840px) {
+  .nav-links {
+    width: 100%;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.96);
+    padding: 1rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+  }
+
+  .nav-links.open {
+    max-height: 320px;
+  }
+
+  .navbar-inner {
+    width: 100%;
+  }
+}

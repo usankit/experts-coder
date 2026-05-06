@@ -1,0 +1,25 @@
+<div class="chatbot-shell">
+  <button type="button" class="btn btn-primary" (click)="toggleChat()">
+    <i class="fas fa-robot"></i>
+    {{ chatOpen ? 'Close Chat' : 'Chat with AI' }}
+  </button>
+
+  <section *ngIf="chatOpen" class="chatbot-window">
+    <header class="chatbot-header">
+      <div>
+        <strong>AI Chat Assistant</strong>
+        <p>Ask about courses, fees, schedules and enrollment.</p>
+      </div>
+    </header>
+    <div class="chatbot-body">
+      <div *ngFor="let message of messages" class="chat-message" [class.bot]="message.role === 'bot'">
+        <span class="message-role">{{ message.role === 'bot' ? 'Bot' : 'You' }}</span>
+        <p>{{ message.text }}</p>
+      </div>
+    </div>
+    <form class="chatbot-form" (submit)="sendMessage(chatInput.value); chatInput.value=''; $event.preventDefault()">
+      <input #chatInput type="text" placeholder="Type your question..." autocomplete="off" />
+      <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </section>
+</div>

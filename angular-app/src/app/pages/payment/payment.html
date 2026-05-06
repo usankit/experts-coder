@@ -1,0 +1,37 @@
+<section class="section-block container">
+  <div class="section-title">
+    <h2>Payment & Enrollment</h2>
+    <p>Choose a course plan and complete payment securely. We support card, UPI and net banking options.</p>
+  </div>
+  <div class="cards-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <div class="card">
+      <h3>Payment Summary</h3>
+      <div class="cards-grid stats-grid" style="margin-top: 1.5rem;">
+        <div class="card"><strong>Course</strong><p>Software Testing</p></div>
+        <div class="card"><strong>Duration</strong><p>3 Months</p></div>
+        <div class="card"><strong>Support</strong><p>Placement Guidance</p></div>
+        <div class="card"><strong>Mode</strong><p>Online/Offline</p></div>
+      </div>
+      <div class="form-actions">
+        <a routerLink="/contact" class="btn btn-secondary">Need Assistance?</a>
+      </div>
+    </div>
+    <div class="form-card payment-form">
+      <form (submit)="onPayment($event)">
+        <input type="text" placeholder="Cardholder Name" required>
+        <input type="text" placeholder="Card Number" inputmode="numeric" maxlength="19" required>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <input type="text" placeholder="MM/YY" maxlength="5" required>
+          <input type="text" placeholder="CVV" maxlength="4" required>
+        </div>
+        <select required>
+          <option value="">Select Payment Method</option>
+          <option value="card">Credit / Debit Card</option>
+          <option value="upi">UPI</option>
+          <option value="netbanking">Net Banking</option>
+        </select>
+        <button class="btn btn-primary" type="submit">Pay ₹12,999</button>
+      </form>
+    </div>
+  </div>
+</section>
